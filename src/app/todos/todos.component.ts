@@ -1,12 +1,10 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
-
 @Component({
   selector: 'app-todos',
   templateUrl: './todos.component.html',
   styleUrls: ['./todos.component.scss']
 })
-
 
 export class TodosComponent implements OnInit {
 
@@ -40,8 +38,4 @@ export class TodosComponent implements OnInit {
   get isInputInvalid() {  /// Валидация символов
     return this.inputTodo.length <= 3;
   }
-
-
-
-
 }
