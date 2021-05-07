@@ -1,0 +1,34 @@
+<h1>Todo List</h1>
+<div class="todo_top" name="todo_top">
+  <input
+    type="text"
+    placeholder="Add some todo"
+    required
+    [(ngModel)]="inputTodo"
+    (keydown.enter)="addTodo()"
+    class="input_text"
+    >
+  <button (click)="addTodo()" [disabled]="isInputInvalid" class="add_btn">Add</button>
+</div>
+<div class="section">
+  <ul >
+    <li>
+      <div *ngFor="let checkbox of checkboxes; let i = index" class="string">
+        <span [class.done]="checkbox.value" class="newDo">
+        <input  type="checkbox" name="" [checked]='checkbox.value' [(ngModel)]="checkbox.value">
+        <label [for]="checkbox.id" class="text">{{ checkbox.content }}</label>
+        <input type="button" class="remove" (click)="removeTodo(checkbox.id)">
+      </span>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="bot">
+  <input  type="checkbox" name="" id="all" (change)="selectAll()">
+  <label class="selectText">Select all</label>
+</div>
+
+<ng-template #noTodos>
+<p>Ok, let's add something..</p>
+</ng-template>
+
